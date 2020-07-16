@@ -32,6 +32,16 @@ class Events(commands.Cog):
         elif isinstance(error, commands.CheckFailure):
             return await ctx.send("Insufficient permissions.")
 
+        elif isinstance(error, commands.CommandInvokeError):
+            if str(error.original) == "403 Forbidden (error code: 50013): Missing Permissions":
+                print("===== Attempting to handle in ctx =====")
+                try:
+                    embed = discord.Embed(title=":x: Missing Permissions", color=discord.Color.red())
+                    await ctx.send(embed=embed)
+                    return print("Success")
+                except Exception:
+                    print("Failed")
+
         print("\n----------\n")
         raise error
         print("\n----------\n")
