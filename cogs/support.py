@@ -27,10 +27,7 @@ class Support(commands.Cog):
     async def channelinfo(self, ctx):
         channel = ctx.message.channel.name
         if channel == "general":
-            embed = discord.Embed(title=f"#{channel}", description="This is the general channel that can be used for all sorts of conversation, preferably related to Lyfé or discord bots.", color=discord.Color.red())
-
-        elif channel == "off-topic":
-            embed = discord.Embed(title=f"#{channel}", description="This is a channel for any off-topic converssation as stated in the title and description. Any and all conversation is welcome.", color=discord.Color.red())
+            embed = discord.Embed(title=f"#{channel}", description="This is the general channel that can be used for all sorts of conversation.", color=discord.Color.red())
 
         elif channel == "bot-commands":
             embed = discord.Embed(title=f"#{channel}", description="This is the channel dedicated to bot commands. Spam is fine as long as it's not over-the-top. Those attempting to stress test bots will fail and also be punished.", color=discord.Color.red())
