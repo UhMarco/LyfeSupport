@@ -11,6 +11,11 @@ class Events(commands.Cog):
         print("- Events Cog loaded")
 
     @commands.Cog.listener()
+    async def on_member_join(self, member):
+        role = discord.utils.get(ctx.guild.roles, name='Member')
+        await member.add_roles(role)
+
+    @commands.Cog.listener()
     async def on_command_error(self, ctx, error):
         # Ignored errors
         ignored = (commands.CommandNotFound, commands.MissingRequiredArgument)#, commands.UserInputError commands.BadArgument
