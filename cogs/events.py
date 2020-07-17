@@ -12,7 +12,7 @@ class Events(commands.Cog):
 
     @commands.Cog.listener()
     async def on_member_join(self, member):
-        role = discord.utils.get(ctx.guild.roles, name='Member')
+        role = discord.utils.get(member.guild.roles, name='Member')
         await member.add_roles(role)
 
     @commands.Cog.listener()
