@@ -32,6 +32,9 @@ class Support(commands.Cog):
         elif channel == "bot-commands":
             embed = discord.Embed(title=f"#{channel}", description="This is the channel dedicated to bot commands. Spam is fine as long as it's not over-the-top. Those attempting to stress test bots will fail and also be punished.", color=discord.Color.red())
 
+        elif channel == "bot-spam":
+            embed = discord.Embed(title=f"#{channel}", description="Trying to get that Evolved Dragon? This is the channel to do the commands that may be a little more spammy and get in the way of other's normal usage. If #bot-commands is a bit busy, you can use this channel too. Those attempting to stress test bots will fail and also be punished.", color=discord.Color.red())
+
         elif channel == "lyfé-help":
             embed = discord.Embed(title=f"#{channel}", description="If you're unsure about anything relating to Lyfé Bot then this the channel to ask your questions. Please know that some information may be sensitive and staff are not required to answer some questions nor give reason for such decisions.", color=discord.Color.red())
 
