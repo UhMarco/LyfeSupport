@@ -19,7 +19,7 @@ class Admin(commands.Cog):
         print("- Admin Cog loaded")
 
     @commands.command(aliases=['staffhelp', 'mhelp', 'shelp'])
-    @commands.has_any_role("Moderator", "Support")
+    @commands.has_any_role("Moderator", "Trial Moderator")
     async def modhelp(self, ctx):
         embed = discord.Embed(title=":herb: Staff Commands List", color=discord.Color.red())
         embed.add_field(name=f"{self.bot.prefix}purge (limit)", value="Group delete an amount of messages.", inline=False)
@@ -32,7 +32,7 @@ class Admin(commands.Cog):
         await ctx.send(embed=embed)
 
     @commands.command()
-    @commands.has_any_role("Moderator", "Support")
+    @commands.has_any_role("Moderator", "Trial Moderator")
     async def purge(self, ctx, amount: int):
         if not amount:
             await ctx.message.delete()
@@ -56,7 +56,7 @@ class Admin(commands.Cog):
     # --------------------------------------------------------------------------
 
     @commands.command()
-    @commands.has_any_role("Moderator", "Support")
+    @commands.has_any_role("Moderator", "Trial Moderator")
     async def blacklist(self, ctx, member: discord.Member):
         if ctx.message.author.id == member.id:
             return await ctx.send("You can't blacklist yourself.")
@@ -87,7 +87,7 @@ class Admin(commands.Cog):
     # --------------------------------------------------------------------------
 
     @commands.command()
-    @commands.has_any_role("Moderator", "Support")
+    @commands.has_any_role("Moderator", "Trial Moderator")
     async def unblacklist(self, ctx, member: discord.Member):
         data = utils.json.read_json("blacklist")
 
@@ -125,7 +125,7 @@ class Admin(commands.Cog):
     # ----- BASIC SERVER MODERATION --------------------------------------------
 
     @commands.command()
-    @commands.has_any_role("Moderator", "Support")
+    @commands.has_any_role("Moderator", "Trial Moderator")
     async def ban(self, ctx, user: discord.Member, *, reason="none provided"):
         if not user:
             return await ctx.send("Please specify a user.")
@@ -150,7 +150,7 @@ class Admin(commands.Cog):
 
     # ----- KICKING -----
     @commands.command()
-    @commands.has_any_role("Moderator", "Support")
+    @commands.has_any_role("Moderator", "Trial Moderator")
     async def kick(self, ctx, user: discord.Member, *, reason="none provided"):
         if not user:
             return await ctx.send("Please specify a user.")
@@ -175,7 +175,7 @@ class Admin(commands.Cog):
     # ----- MUTING -----
 
     @commands.command()
-    @commands.has_any_role("Moderator", "Support")
+    @commands.has_any_role("Moderator", "Trial Moderator")
     async def mute(self, ctx, user: discord.Member, duration=None, *, reason="none provided"):
         if not user:
             return await ctx.send("Please specify a user.")
@@ -237,7 +237,7 @@ class Admin(commands.Cog):
             return await ctx.send(f"Usage: `{self.bot.prefix}mute (user) [reason]`")
 
     @commands.command()
-    @commands.has_any_role("Moderator", "Support")
+    @commands.has_any_role("Moderator", "Trial Moderator")
     async def unmute(self, ctx, user: discord.Member):
         if not user:
             return await ctx.send("Please specify a user.")
