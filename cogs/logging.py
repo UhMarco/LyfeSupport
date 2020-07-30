@@ -200,14 +200,16 @@ class Logging(commands.Cog):
                         description=f"Added `{add[0].name}` role"
                     )
             except IndexError:
-                if rem[0] in before.roles:
-                    embed = discord.Embed(
-                        title="Member updated roles",
-                        color=discord.Colour.blue(),
-                        timestamp=datetime.datetime.utcnow(),
-                        description=f"Removed `{rem[0].name}` role"
-                    )
-
+                try:
+                    if rem[0] in before.roles:
+                        embed = discord.Embed(
+                            title="Member updated roles",
+                            color=discord.Colour.blue(),
+                            timestamp=datetime.datetime.utcnow(),
+                            description=f"Removed `{rem[0].name}` role"
+                        )
+                except IndexError:
+                    return
         else:
             return
 
